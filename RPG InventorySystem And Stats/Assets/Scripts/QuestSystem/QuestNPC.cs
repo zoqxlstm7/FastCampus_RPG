@@ -70,8 +70,8 @@ public class QuestNPC : MonoBehaviour, IInteractable
         interactGo = other;
 
         // 대화 시작 플래그 설정 및 대화 종료 이벤트 함수 등록
-        isStartQuestDialogue = true;
         DialogueManager.Instance.OnEndDialogue += OnEndDialogue;
+        isStartQuestDialogue = true;
 
         // 퀘스트를 받지 않은 상태라면 퀘스트 준비 문장 노출 후 퀘스트 수락 상태로 변경
         if (questObject.status == QuestStatus.None)
@@ -89,14 +89,14 @@ public class QuestNPC : MonoBehaviour, IInteractable
         {
             DialogueManager.Instance.StartDialogue(completedDialogue);
 
+            /*
+             * Todo: Process Reward (보상 지급)
+             */
+
             // 퀘스트 보상 상태로 변경 및 퀘스트 관련 이펙트 비활성화
             questObject.status = QuestStatus.Rewarded;
             questEffectGo.SetActive(false);
             questRewardGo.SetActive(false);
-
-            /*
-             * Todo: Process Reward (보상 지급)
-             */
         }
 
         return true;
@@ -129,7 +129,7 @@ public class QuestNPC : MonoBehaviour, IInteractable
     }
 
     /// <summary>
-    /// 퀘스트 완료시 호출도는 이벤트 함수
+    /// 퀘스트 완료시 호출되는 이벤트 함수
     /// </summary>
     /// <param name="questObject">퀘스트 오브젝트</param>
     void OnCompletedQuest(QuestObject questObject)
