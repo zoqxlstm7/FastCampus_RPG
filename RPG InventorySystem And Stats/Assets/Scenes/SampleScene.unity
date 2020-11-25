@@ -5021,8 +5021,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2046175128}
-  - component: {fileID: 2046175127}
   - component: {fileID: 2046175126}
+  - component: {fileID: 2046175127}
   m_Layer: 0
   m_Name: DoorTriggerArea
   m_TagString: Untagged
