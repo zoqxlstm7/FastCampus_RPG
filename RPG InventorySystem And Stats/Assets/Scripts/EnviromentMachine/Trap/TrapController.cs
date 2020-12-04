@@ -18,7 +18,7 @@ public class TrapController : MonoBehaviour
     private void Update()
     {
         // 주체가 있다면 지속시간 계산
-        if(damageable != null)
+        if (damageable != null)
         {
             calcDuration -= Time.deltaTime;
         }
@@ -27,7 +27,7 @@ public class TrapController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         damageable = other.GetComponentInParent<IDamageable>();
-        if(damageable != null)
+        if (damageable != null)
         {
             calcDuration = damageDuration;
 
